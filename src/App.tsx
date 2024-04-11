@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Button } from './Button'
-import { Counter } from './Counter'
+import { Button } from './components/Button'
+import { Counter } from './components/Counter'
 import { useEvent } from './hooks/useEvent'
 
 function App (): JSX.Element {

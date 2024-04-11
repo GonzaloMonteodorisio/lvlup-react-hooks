@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useCounter } from './hooks/useCounter'
+import { useCounter } from '../hooks/useCounter'
 
 export const Counter = (): JSX.Element => {
   const { increment, decrement, counter } = useCounter({ initialValue: 0 })
