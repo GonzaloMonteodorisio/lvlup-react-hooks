@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx",
     "lint:fix": "npm run lint --fix",
-    "test": "vitest run --coverage"
+    "test": "vitest run --coverage",
+    "test:watch": "vitest --watch"
   },
   "dependencies": {
     "lvl-js-utils": "^0.1.0",
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^15.0.1",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/node": "^20.12.5",
     "@types/react": "^18.2.43",
