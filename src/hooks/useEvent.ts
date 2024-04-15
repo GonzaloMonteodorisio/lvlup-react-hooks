@@ -12,6 +12,5 @@ export function useEvent<T extends AnyFunction> (callback: T): T {
   React.useLayoutEffect(() => {
     ref.current = callback
   }, [])
-
   return React.useCallback<AnyFunction>((...args: AnyFunction) => ref.current(...args), []) as T
 }

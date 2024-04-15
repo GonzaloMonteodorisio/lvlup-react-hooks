@@ -34,3 +34,29 @@ yarn add -D
   @testing-library/react-hooks
   @testing-library/jest-dom jsdom
   @testing-library/react
+
+
+### Versioning
+
+npm version patch -> incrementa el patch del package.json
+npm version prepatch -> pasa de la versión 1.0.0 a 1.0.0-1 (util cuando tenemos entornos pre-productivos)
+
+npm version minor
+npm version preminor
+
+npm version major
+npm version premajor
+
+---------------------------------------------------------------------------
+
+producción      night         stg                 local
+    |             |
+ Monitoreo     Monitoreo
+
+
+
+Datadog (latencia entre los servicios)
+Datadog (errores de aplicacion) + Sentry (errores en tiempo de ejecución)
+
+
+Night es un ambiente especial que tienen acceso los peya devs (?) Pruebas A/B
