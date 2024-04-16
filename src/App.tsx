@@ -6,6 +6,7 @@ import { TrackeableComponent } from './components/TrackeableComponent'
 import { useDebounce } from './hooks/useDebounce'
 import { useEvent } from './hooks/useEvent'
 import { useThrottle } from './hooks/useThrottle'
+import { useWindowsResize } from './hooks/useWindowsResize'
 
 function App (): JSX.Element {
   const [text, setText] = React.useState('')
@@ -21,7 +22,8 @@ function App (): JSX.Element {
   const onButtonClick = (): void => {
     console.log('press on throttled click')
   }
-
+  const { width, height } = useWindowsResize()
+  console.log('width, height', width, height)
   const throttledButtonClick = useThrottle(onButtonClick, 1000)
 
   return (
@@ -31,6 +33,7 @@ function App (): JSX.Element {
       <input type="text" onChange={onChange} />
       <Button onClick={onClick}/>
       <button onClick={throttledButtonClick}>Throttled click</button>
+      <br />
       <div style={{ height: '800px' }} />
       <TrackeableComponent />
     </>

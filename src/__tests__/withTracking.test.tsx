@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
-import React from 'react'
 import { describe, it, vi } from 'vitest'
 
 import { withTracking } from '../withTracking'
 
+// eslint-disable-next-line react/react-in-jsx-scope
 const MockComponent = (): JSX.Element => <div>Mock component</div>
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
