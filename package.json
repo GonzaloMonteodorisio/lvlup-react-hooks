@@ -1,8 +1,20 @@
 {
   "name": "lvlup-react-hooks",
-  "private": true,
   "version": "0.0.1",
   "type": "module",
+  "main": "./dist/lvlup-react-hooks.umd.cjs",
+  "exports": {
+    ".": {
+      "import": "./dist/lvlup-react-hooks.js",
+      "require": "./dist/lvlup-react-hooks.umd.cjs"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
