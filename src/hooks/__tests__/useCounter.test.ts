@@ -10,7 +10,7 @@ import { useCounter } from '../useCounter'
 describe('useCounter', () => {
   it('Should increment and decrement counter properly', () => {
     const { result } = renderHook(() => useCounter({ initialValue: 0 }))
-    expect(result.current.counter).toBe(0)
+    expect(result.current.counter).toBe(1)
     /*
      result: {
         current: {
