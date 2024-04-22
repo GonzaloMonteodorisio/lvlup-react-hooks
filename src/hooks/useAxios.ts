@@ -8,6 +8,7 @@
 
 import { AxiosError, type AxiosInstance, type AxiosRequestConfig } from 'axios'
 import * as React from 'react'
+import useDeepCompareEffect from 'use-deep-compare-effect'
 
 import { setCommonHeaders } from '../utils/headers'
 import { useLiveRef } from './useLiveRef'
@@ -16,12 +17,13 @@ interface Config extends AxiosRequestConfig {
   instance: AxiosInstance
   method: 'get' | 'post' | 'put' | 'patch' | 'delete'
   url: string
-  enabled?: boolean // controlar en que momento (ciclo de vida) debe ejecutarse el hook
+  enabled: boolean // controlar en que momento (ciclo de vida) debe ejecutarse el hook
+  onErrorCallback?: () => void
 }
 
 interface UseAxios<T> {
   data: T | null
-  error: string | null | AxiosError
+  error: string | AxiosError
   loading: boolean
   // fetcher?: (config) => Promise<void>
 }
@@ -40,8 +42,21 @@ export const useAxios = <T>(config: Config): UseAxios<T> => {
   instance.defaults.timeout = 300 // P95 de latencia de la aplicación
   setCommonHeaders(instance)
   const [response, setResponse] = React.useState<T | null>(null)
-  const [, setError] = React.useState<typeof AxiosError | string | null>('')
-  const [loading, setLoading] = React.useState(false)
+  const [error, setError] = React.useState<AxiosError | string>('')
+  const [loading, setLoading] = React.useState(configRef.current.enabled)
+
+  instance.interceptors.response.use((response) => {
+    if (response.status === 200) {
+      // sendMetricToDD() // envia una métrica con información del servidor (tiempo de respuesta, mensaje)
+    }
+    // next()
+    return response
+  }, async (error) => {
+    if (error.response !== null && error.response.status === 500) {
+      error.config?.onErrorCallback()
+    }
+    return await Promise.reject(error)
+  })
 
   const fetch = React.useCallback(async (config: Config): Promise<void> => {
     try {
@@ -58,7 +73,7 @@ export const useAxios = <T>(config: Config): UseAxios<T> => {
           ...instance.defaults.headers.common
         }
       })
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+
       setResponse(res.data)
     } catch (err) {
       if (err instanceof AxiosError) {
@@ -71,12 +86,24 @@ export const useAxios = <T>(config: Config): UseAxios<T> => {
     }
   }, [instance, config])
 
-  React.useEffect(() => {
+  function pickProps<T> (value: T, keys: Array<keyof T>): Partial<T> {
+    return keys.reduce<Partial<T>>(
+      (acc, key) => {
+        acc[key] = value[key]
+        return acc
+      }, {}
+    )
+  }
+
+  const watchedConfigProps = pickProps(config, ['enabled', 'url', 'headers'])
+  useDeepCompareEffect(() => {
+    // ¿Qué tipo de dato es headers? -> Objeto
     void fetch(configRef.current)
-  }, [])
+  }, [watchedConfigProps])
+
   return {
     data: response,
-    error: '',
+    error,
     loading
   }
 }

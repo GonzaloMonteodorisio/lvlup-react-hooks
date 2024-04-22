@@ -28,7 +28,7 @@ module.exports = {
         "react",
         "simple-import-sort"
     ],
-    "ignorePatterns": [".eslintrc.cjs", "vite.config.ts", "tests/*"],
+    "ignorePatterns": [".eslintrc.cjs", "vite.config.ts", "tests/*", "dist/"],
     "rules": {
         "simple-import-sort/imports": "error",
         "@typescript-eslint/no-explicit-any": "error",

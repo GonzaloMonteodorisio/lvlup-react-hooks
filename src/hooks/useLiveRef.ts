@@ -5,7 +5,7 @@ export function useLiveRef<T> (value: T): React.MutableRefObject<T> {
 
   React.useEffect(() => {
     ref.current = value
-  })
+  }, [])
 
   return ref
 }
