@@ -1,6 +1,6 @@
 {
   "name": "lvlup-react-hooks",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "main": "./dist/lvlup-react-hooks.umd.cjs",
   "exports": {
