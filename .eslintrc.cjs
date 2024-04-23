@@ -5,7 +5,7 @@ module.exports = {
     },
     "extends": [
         "standard-with-typescript",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
     ],
     "overrides": [
         {
@@ -32,7 +32,8 @@ module.exports = {
     "rules": {
         "simple-import-sort/imports": "error",
         "@typescript-eslint/no-explicit-any": "error",
-        // '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', "ignoreSiblings": false }],
         "no-console": "warn",
+        "import/prefer-default-export": "off",
+        "import/extensions": "off"
     },
 }
