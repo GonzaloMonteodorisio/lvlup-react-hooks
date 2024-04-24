@@ -1975,10 +1975,10 @@ eslint-config-standard@17.1.0:
   resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-17.1.0.tgz#40ffb8595d47a6b242e07cbfd49dc211ed128975"
   integrity sha512-IwHwmaBNtDK4zDHQukFDW5u/aTb8+meQWZvNFWkiGmbWjD6bqyuSSBxxXKkCftCUzc1zwCH2m/baCNDLGmuO5Q==
 
-eslint-fdl-base-conf@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/eslint-fdl-base-conf/-/eslint-fdl-base-conf-0.0.3.tgz#3596dd4f0e31fa2371aae84fb2009a6a76d2351b"
-  integrity sha512-slyixF2/0GibnKLQ9Izg7P/PvwdgA3+NuEdqLRTVjiYtou0RoHDzC71mS1LlxGTyUpj6TfEhgpFYc3Qsz56big==
+eslint-fdl-base-conf@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/eslint-fdl-base-conf/-/eslint-fdl-base-conf-0.0.4.tgz#c458a38529f3f1e416dfd9e8febfa69f34815b54"
+  integrity sha512-Et/NWDk1n809mE2pPo7Wo6iNNtZOvdq8BRd3sopz2W3I9lnAfW9+3Co8LKCpdrD42qc//RL0cL105gpxhxZgJg==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^6.4.0"
     "@typescript-eslint/parser" "^6.14.0"
@@ -3166,10 +3166,10 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-lvl-js-utils@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/lvl-js-utils/-/lvl-js-utils-0.1.0.tgz#711066fde4a24ea348db4c3ed3625bc16c9664b7"
-  integrity sha512-eQDOOU/FnGXJBQusZA+5XnNT7hlXS8gfKs1pD1gk7AsbeKQQ/BA8BGdkfQEkVqheB1EWkBAnmD/kGfOECG3xOQ==
+lvl-js-utils@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/lvl-js-utils/-/lvl-js-utils-0.1.1.tgz#f196f6386ef67d2d4aa15f925d5f05997b9aa4c8"
+  integrity sha512-LYP69ZZJ8HxKL7acW9UjAZ2EktdwpDc78wd797WH3Tgf0xIBmtdGEBlgcvo9CmVk95zl8xfmdB/GRR9DUfIV4Q==
 
 lz-string@^1.5.0:
   version "1.5.0"
