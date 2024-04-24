@@ -4,7 +4,7 @@ module.exports = {
         "es2021": true
     },
     "extends": [
-        "standard-with-typescript",
+        './node_modules/eslint-fdl-base-conf',
         "plugin:react/recommended",
     ],
     "overrides": [
@@ -26,14 +26,8 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "simple-import-sort"
     ],
     "ignorePatterns": [".eslintrc.cjs", "vite.config.ts", "tests/*", "dist/"],
     "rules": {
-        "simple-import-sort/imports": "error",
-        "@typescript-eslint/no-explicit-any": "error",
-        "no-console": "warn",
-        "import/prefer-default-export": "off",
-        "import/extensions": "off"
     },
 }

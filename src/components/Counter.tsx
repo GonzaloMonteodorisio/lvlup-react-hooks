@@ -1,7 +1,9 @@
+import * as React from 'react'
+
 /* eslint-disable react/react-in-jsx-scope */
 import { useCounter } from '../hooks/useCounter'
 
-export const Counter = (): JSX.Element => {
+export const Counter = (): React.JSX.Element => {
   const { increment, decrement, counter } = useCounter({ initialValue: 0 })
   return (
     <>
